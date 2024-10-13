@@ -9,7 +9,32 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+                    <div class="flex justify-between">
+                        <h1 class="text-3xl font-bold">Customers list</h1>
+                        <button class="mx-3 px-4 h-auto border border-slate-800">+</button>
+                    </div>
+                    <table class="w-full table-auto">
+                        <thead>
+                            <tr class="h-10 font-bold text-lg">
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>Description</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($customers as $item)
+                            <tr>
+                                <td> {{ $item['name'] }} </td>
+                                <td> {{ $item['address'] }} </td>
+                                <td> {{ $item['phone'] }} </td>
+                                <td> {{ $item['description'] }} </td>
+                                <td class="text-center"> {{ __('Edit') }} {{ __('Delete') }} </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
